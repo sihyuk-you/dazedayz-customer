@@ -1025,265 +1025,500 @@
         align-items: start;
       }
     }
+
+    .app-shell {
+      display: grid;
+      grid-template-columns: 250px minmax(0, 1fr);
+      min-height: 100vh;
+    }
+
+    .app-sidebar {
+      position: sticky;
+      top: 0;
+      align-self: start;
+      min-height: 100vh;
+      padding: 28px 22px;
+      border-right: 1px solid var(--line);
+      background: rgba(255, 252, 246, 0.86);
+      backdrop-filter: blur(10px);
+    }
+
+    .sidebar-brand {
+      display: grid;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+
+    .sidebar-brand h1 {
+      margin: 0;
+      font-size: 1.35rem;
+      font-family: var(--title-font);
+      letter-spacing: -0.03em;
+    }
+
+    .sidebar-brand p,
+    .sidebar-note p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .menu-list {
+      display: grid;
+      gap: 8px;
+      margin-bottom: 22px;
+    }
+
+    .menu-button {
+      display: grid;
+      gap: 4px;
+      width: 100%;
+      padding: 14px 14px;
+      border: 1px solid transparent;
+      border-radius: 16px;
+      background: transparent;
+      color: var(--ink);
+      cursor: pointer;
+      text-align: left;
+      transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .menu-button:hover {
+      transform: translateX(2px);
+      background: rgba(255, 255, 255, 0.82);
+      border-color: rgba(24, 34, 28, 0.08);
+    }
+
+    .menu-button.active {
+      background: rgba(48, 89, 77, 0.08);
+      border-color: rgba(48, 89, 77, 0.18);
+    }
+
+    .menu-button strong {
+      font-size: 0.96rem;
+    }
+
+    .menu-button span {
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    .sidebar-note {
+      padding: 16px;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.82);
+    }
+
+    .sidebar-note strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 0.92rem;
+    }
+
+    .app-main {
+      min-width: 0;
+      padding: 28px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+      padding: 24px 26px;
+      border-radius: 24px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.88);
+      box-shadow: var(--shadow);
+    }
+
+    .topbar-copy {
+      display: grid;
+      gap: 8px;
+      max-width: 760px;
+    }
+
+    .topbar-copy h1 {
+      margin: 0;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      line-height: 1;
+      font-family: var(--title-font);
+      letter-spacing: -0.04em;
+    }
+
+    .topbar-copy p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .topbar-stats {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(138px, 1fr));
+      gap: 10px;
+      min-width: min(100%, 320px);
+    }
+
+    .topbar-stats .stat-tile {
+      padding: 14px 16px;
+      border-radius: 18px;
+      box-shadow: none;
+      background: rgba(248, 243, 236, 0.84);
+    }
+
+    .topbar-stats .stat-tile strong {
+      margin-bottom: 4px;
+      font-size: 1.45rem;
+    }
+
+    .page-area {
+      display: block;
+    }
+
+    .page-view {
+      display: none;
+      gap: 16px;
+    }
+
+    .page-view.active {
+      display: grid;
+      animation: fadeUp 0.3s both;
+    }
+
+    .page-view .section-head {
+      margin-bottom: 10px;
+    }
+
+    .flow-card {
+      padding: 18px 20px;
+      border-radius: 20px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.88);
+    }
+
+    .flow-card strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 0.95rem;
+    }
+
+    .flow-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .detail-disclosure {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 0 16px;
+      margin-top: 12px;
+    }
+
+    .detail-disclosure summary {
+      padding: 16px 0;
+      cursor: pointer;
+      font-weight: 700;
+      list-style: none;
+    }
+
+    .detail-disclosure summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .detail-disclosure .disclosure-body {
+      padding: 0 0 16px;
+    }
+
+    .compact-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .compact-grid .info-card {
+      margin: 0;
+    }
+
+    @media (max-width: 1200px) {
+      .app-shell {
+        grid-template-columns: 1fr;
+      }
+
+      .app-sidebar {
+        position: static;
+        min-height: auto;
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+    }
+
+    @media (max-width: 760px) {
+      .app-main {
+        padding: 16px 10px 28px;
+      }
+
+      .app-sidebar {
+        padding: 18px 14px;
+      }
+
+      .topbar {
+        padding: 18px;
+      }
+
+      .topbar-stats,
+      .compact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 <body>
-  <div class="page-shell">
-    <header class="hero">
-      <div class="hero-top">
-        <div class="brand-lockup">
-          <span class="eyebrow">DD Society / Demo</span>
-          <h1>고객과 관계 자산을 한 화면에서 운영하는 샘플 관리자</h1>
-          <p>
-            VIP, 일반 고객, 셀럽, 인플루언서/KOL을 하나의 인물 마스터로 관리하고,
-            증정, 행사, 여행, 협찬 프로젝트에 맞는 대상을 바로 선별할 수 있도록 만든 단일 HTML 데모입니다.
-          </p>
+  <div class="app-shell">
+    <aside class="app-sidebar">
+      <div class="sidebar-brand">
+        <span class="eyebrow">DD Society / Demo</span>
+        <h1>고객 데이터 운영 샘플</h1>
+        <p>실제 관리자처럼 메뉴를 따라 이동하면서 필요한 데이터만 단계적으로 확인하는 버전입니다.</p>
+      </div>
+
+      <nav class="menu-list" id="pageMenu">
+        <button type="button" class="menu-button active" data-page="overview">
+          <strong>1. 운영 홈</strong>
+          <span>오늘 우선순위와 프로젝트 현황</span>
+        </button>
+        <button type="button" class="menu-button" data-page="directory">
+          <strong>2. 인물 관리</strong>
+          <span>조건 필터 후 상세로 진입</span>
+        </button>
+        <button type="button" class="menu-button" data-page="recommendation">
+          <strong>3. 프로젝트 추천</strong>
+          <span>행사/증정 후보 자동 선별</span>
+        </button>
+        <button type="button" class="menu-button" data-page="giftTracker">
+          <strong>4. 증정 추적</strong>
+          <span>발송 이후 업로드와 후속 관리</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-note">
+        <strong>권장 시연 순서</strong>
+        <p>운영 홈에서 우선순위를 본 뒤 인물 관리에서 상세 확인, 프로젝트 추천에서 후보 선별, 마지막으로 증정 추적에서 사후 결과를 연결해 보시면 됩니다.</p>
+      </div>
+    </aside>
+
+    <div class="app-main">
+      <header class="topbar">
+        <div class="topbar-copy">
+          <span class="eyebrow">Data-First Flow</span>
+          <h1 id="pageTitle">운영 홈</h1>
+          <p id="pageDescription">샘플 기준일은 2026년 3월 15일입니다. 오늘 챙길 사람, 진행 프로젝트, 주요 운영 지표를 간단히 확인합니다.</p>
         </div>
-        <div class="hero-stats" id="heroStats"></div>
-      </div>
+        <div class="topbar-stats" id="heroStats"></div>
+      </header>
 
-      <div class="hero-actions">
-        <a class="nav-pill" href="#overview">Overview</a>
-        <a class="nav-pill" href="#directory">Person Directory</a>
-        <a class="nav-pill" href="#recommendation">Recommendation</a>
-        <a class="nav-pill" href="#giftTracker">Gift Tracker</a>
-      </div>
-
-      <div class="intro-ribbon">
-        <div class="intro-card">
-          <h2>이 데모가 보여주는 것</h2>
-          <p>
-            검색과 필터, 인물 상세, 추천 엔진, 증정 사후 추적이 한 파일 안에서 동작합니다.
-            실제 DB 연결 없이도 운영 시나리오를 설명하고, 이후 개발 요구사항으로 바로 연결할 수 있게 구성했습니다.
-          </p>
-          <div class="quick-badges">
-            <span class="badge">20명 샘플 인물</span>
-            <span class="badge type">VIP / 고객 / 셀럽 / 인플루언서 / KOL</span>
-            <span class="badge accent">5개 프로젝트</span>
-            <span class="badge gold">18건 증정 이력</span>
+      <main class="page-area">
+        <section class="page-view active" data-page="overview" id="overview">
+          <div class="flow-card">
+            <strong>시작 화면</strong>
+            <p>이 페이지는 전체 현황을 빠르게 훑는 용도입니다. 여기서 사람을 선택하면 인물 관리 메뉴로 이동해 상세 확인을 이어갈 수 있습니다.</p>
           </div>
-        </div>
-        <div class="intro-card">
-          <h3>시연 흐름</h3>
-          <p>
-            대시보드에서 우선순위를 확인하고, 인물 목록에서 필터로 대상을 좁힌 뒤,
-            상세 패널에서 관계 상태를 확인합니다. 이후 추천 엔진에서 프로젝트별 후보를 뽑고,
-            증정 추적 테이블에서 사후 홍보 결과까지 연결해서 볼 수 있습니다.
-          </p>
-        </div>
-      </div>
-    </header>
 
-    <section class="section-block" id="overview">
-      <div class="section-head">
-        <div>
-          <h2>Overview</h2>
-          <p>샘플 기준일은 2026년 3월 15일입니다. 당장 챙겨야 할 사람, 이번 달 운영 현황, 핵심 프로젝트를 한 번에 확인합니다.</p>
-        </div>
-      </div>
+          <div class="dashboard-grid">
+            <div class="panel">
+              <h3>핵심 운영 지표</h3>
+              <div class="metric-grid" id="metricGrid"></div>
+            </div>
 
-      <div class="dashboard-grid">
-        <div class="panel">
-          <h3>핵심 운영 지표</h3>
-          <div class="metric-grid" id="metricGrid"></div>
-        </div>
+            <div class="panel">
+              <h3>오늘 확인할 대상</h3>
+              <div class="overview-lists" id="priorityLists"></div>
+            </div>
 
-        <div class="panel">
-          <h3>오늘 챙길 우선순위</h3>
-          <div class="overview-lists" id="priorityLists"></div>
-        </div>
-
-        <div class="panel" style="grid-column: 1 / -1;">
-          <div class="section-head" style="margin-bottom: 10px;">
-            <div>
-              <h2 style="font-size: 1.65rem;">진행 중인 프로젝트</h2>
-              <p>데모 추천 영역과 연결되는 프로젝트 요약입니다.</p>
+            <div class="panel" style="grid-column: 1 / -1;">
+              <h3>진행 중인 프로젝트</h3>
+              <div class="project-grid" id="projectGrid"></div>
             </div>
           </div>
-          <div class="project-grid" id="projectGrid"></div>
-        </div>
-      </div>
-    </section>
+        </section>
 
-    <section class="section-block" id="directory">
-      <div class="section-head">
-        <div>
-          <h2>Person Directory</h2>
-          <p>사람 중심 마스터. 검색, 유형, 상태, 태그, 정렬 기준으로 빠르게 대상을 찾고 상세 패널로 관계 이력을 확인합니다.</p>
-        </div>
-      </div>
+        <section class="page-view" data-page="directory" id="directory">
+          <div class="flow-card">
+            <strong>인물 탐색 플로우</strong>
+            <p>1. 조건 선택 2. 후보 리스트 확인 3. 오른쪽 상세에서 관계 상태와 최근 이력을 확인합니다. 세부 정보는 접었다 펼 수 있게 정리했습니다.</p>
+          </div>
 
-      <div class="workspace-grid">
-        <div class="panel">
-          <div class="filter-panel">
-            <div class="toolbar">
+          <div class="workspace-grid">
+            <div class="panel">
+              <div class="filter-panel">
+                <div class="toolbar">
+                  <div>
+                    <h3 style="margin-bottom: 6px;">인물 검색</h3>
+                    <small id="personCountLabel">-</small>
+                  </div>
+                  <button type="button" class="ghost-button" id="resetFiltersButton">필터 초기화</button>
+                </div>
+
+                <div class="field">
+                  <label for="searchInput">검색어</label>
+                  <input id="searchInput" type="text" placeholder="이름, 닉네임, 태그, 담당자, 지역 검색">
+                </div>
+
+                <div class="field">
+                  <label>유형</label>
+                  <div class="chip-row" id="typeChips"></div>
+                </div>
+
+                <div class="filter-grid">
+                  <div class="field">
+                    <label for="statusFilter">상태</label>
+                    <select id="statusFilter"></select>
+                  </div>
+                  <div class="field">
+                    <label for="tagFilter">핵심 태그</label>
+                    <select id="tagFilter"></select>
+                  </div>
+                  <div class="field">
+                    <label for="sortFilter">정렬</label>
+                    <select id="sortFilter">
+                      <option value="score">종합 점수 높은 순</option>
+                      <option value="nextAction">다음 액션 빠른 순</option>
+                      <option value="followers">채널 영향력 높은 순</option>
+                      <option value="purchase">누적 구매액 높은 순</option>
+                      <option value="lastContact">최근 접촉일 최신 순</option>
+                    </select>
+                  </div>
+                  <div class="field">
+                    <label for="ownerFilter">내부 담당자</label>
+                    <select id="ownerFilter"></select>
+                  </div>
+                </div>
+              </div>
+
+              <div class="person-list" id="personList"></div>
+            </div>
+
+            <aside class="panel detail-panel" id="personDetail"></aside>
+          </div>
+        </section>
+
+        <section class="page-view" data-page="recommendation" id="recommendation">
+          <div class="flow-card">
+            <strong>추천 플로우</strong>
+            <p>프로젝트 템플릿을 고르고 조건을 조정하면 상위 후보만 간단히 보여줍니다. 상세 확인이 필요하면 인물 이름을 눌러 인물 관리로 이동합니다.</p>
+          </div>
+
+          <div class="recommend-grid">
+            <div class="panel">
+              <div class="recommend-form">
+                <div class="field">
+                  <label for="projectSelect">프로젝트 템플릿</label>
+                  <select id="projectSelect"></select>
+                </div>
+
+                <div class="project-brief" id="projectBrief"></div>
+
+                <div class="filter-grid">
+                  <div class="field">
+                    <label for="recommendProjectType">유형</label>
+                    <select id="recommendProjectType"></select>
+                  </div>
+                  <div class="field">
+                    <label for="recommendTargetType">대상 유형</label>
+                    <select id="recommendTargetType"></select>
+                  </div>
+                  <div class="field">
+                    <label for="recommendTag">핵심 태그</label>
+                    <select id="recommendTag"></select>
+                  </div>
+                  <div class="field">
+                    <label for="recommendRegion">활동 지역</label>
+                    <select id="recommendRegion"></select>
+                  </div>
+                  <div class="field">
+                    <label for="recommendBudget">예산 감도</label>
+                    <select id="recommendBudget">
+                      <option value="전체">전체</option>
+                      <option value="하">하</option>
+                      <option value="중">중</option>
+                      <option value="상">상</option>
+                    </select>
+                  </div>
+                  <div class="field">
+                    <label for="recommendRisk">리스크 처리</label>
+                    <select id="recommendRisk">
+                      <option value="exclude">리스크 높은 인물 제외</option>
+                      <option value="include">리스크 포함하고 경고만 표시</option>
+                    </select>
+                  </div>
+                </div>
+
+                <button type="button" class="primary-button" id="recommendationButton">추천 다시 계산</button>
+              </div>
+            </div>
+
+            <div class="panel">
+              <div class="result-summary" id="recommendationSummary"></div>
+              <div class="recommendation-list" id="recommendationList"></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="page-view" data-page="giftTracker" id="giftTracker">
+          <div class="flow-card">
+            <strong>증정 사후 관리</strong>
+            <p>프로젝트와 업로드 상태를 기준으로 추적합니다. 대상 이름을 누르면 인물 관리로 이동해 관계 이력과 다음 액션을 이어서 볼 수 있습니다.</p>
+          </div>
+
+          <div class="panel">
+            <div class="gift-toolbar">
               <div>
-                <h3 style="margin-bottom: 6px;">인물 검색</h3>
-                <small id="personCountLabel">-</small>
+                <h3 style="margin-bottom: 6px;">증정 추적 테이블</h3>
+                <small class="muted" id="giftCountLabel">-</small>
               </div>
-              <button type="button" class="ghost-button" id="resetFiltersButton">필터 초기화</button>
-            </div>
-
-            <div class="field">
-              <label for="searchInput">검색어</label>
-              <input id="searchInput" type="text" placeholder="이름, 닉네임, 태그, 담당자, 지역 검색">
-            </div>
-
-            <div class="field">
-              <label>유형</label>
-              <div class="chip-row" id="typeChips"></div>
-            </div>
-
-            <div class="filter-grid">
-              <div class="field">
-                <label for="statusFilter">상태</label>
-                <select id="statusFilter"></select>
-              </div>
-              <div class="field">
-                <label for="tagFilter">핵심 태그</label>
-                <select id="tagFilter"></select>
-              </div>
-              <div class="field">
-                <label for="sortFilter">정렬</label>
-                <select id="sortFilter">
-                  <option value="score">종합 점수 높은 순</option>
-                  <option value="nextAction">다음 액션 빠른 순</option>
-                  <option value="followers">채널 영향력 높은 순</option>
-                  <option value="purchase">누적 구매액 높은 순</option>
-                  <option value="lastContact">최근 접촉일 최신 순</option>
-                </select>
-              </div>
-              <div class="field">
-                <label for="ownerFilter">내부 담당자</label>
-                <select id="ownerFilter"></select>
-              </div>
-            </div>
-          </div>
-
-          <div class="person-list" id="personList"></div>
-        </div>
-
-        <aside class="panel detail-panel" id="personDetail"></aside>
-      </div>
-    </section>
-
-    <section class="section-block" id="recommendation">
-      <div class="section-head">
-        <div>
-          <h2>Recommendation Engine</h2>
-          <p>설명 가능한 규칙 기반 추천입니다. 프로젝트 유형, 대상 유형, 태그, 지역, 예산, 리스크 제외 여부로 추천 결과가 실시간으로 변합니다.</p>
-        </div>
-      </div>
-
-      <div class="recommend-grid">
-        <div class="panel">
-          <div class="recommend-form">
-            <div class="field">
-              <label for="projectSelect">프로젝트 템플릿</label>
-              <select id="projectSelect"></select>
-            </div>
-
-            <div class="project-brief" id="projectBrief"></div>
-
-            <div class="filter-grid">
-              <div class="field">
-                <label for="recommendProjectType">유형</label>
-                <select id="recommendProjectType"></select>
-              </div>
-              <div class="field">
-                <label for="recommendTargetType">대상 유형</label>
-                <select id="recommendTargetType"></select>
-              </div>
-              <div class="field">
-                <label for="recommendTag">핵심 태그</label>
-                <select id="recommendTag"></select>
-              </div>
-              <div class="field">
-                <label for="recommendRegion">활동 지역</label>
-                <select id="recommendRegion"></select>
-              </div>
-              <div class="field">
-                <label for="recommendBudget">예산 감도</label>
-                <select id="recommendBudget">
-                  <option value="전체">전체</option>
-                  <option value="하">하</option>
-                  <option value="중">중</option>
-                  <option value="상">상</option>
-                </select>
-              </div>
-              <div class="field">
-                <label for="recommendRisk">리스크 처리</label>
-                <select id="recommendRisk">
-                  <option value="exclude">리스크 높은 인물 제외</option>
-                  <option value="include">리스크 포함하고 경고만 표시</option>
-                </select>
+              <div class="filter-grid" style="min-width: min(100%, 560px);">
+                <div class="field">
+                  <label for="giftProjectFilter">프로젝트</label>
+                  <select id="giftProjectFilter"></select>
+                </div>
+                <div class="field">
+                  <label for="giftUploadFilter">업로드 상태</label>
+                  <select id="giftUploadFilter">
+                    <option value="전체">전체</option>
+                    <option value="업로드 완료">업로드 완료</option>
+                    <option value="업로드 예정">업로드 예정</option>
+                    <option value="미업로드">미업로드</option>
+                  </select>
+                </div>
               </div>
             </div>
 
-            <button type="button" class="primary-button" id="recommendationButton">추천 다시 계산</button>
-          </div>
-        </div>
-
-        <div class="panel">
-          <div class="result-summary" id="recommendationSummary"></div>
-          <div class="recommendation-list" id="recommendationList"></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section-block" id="giftTracker">
-      <div class="section-head">
-        <div>
-          <h2>Gift Tracker</h2>
-          <p>누가 무엇을 받았고, 업로드와 후속 관리가 어디까지 진행됐는지 확인합니다. 테이블의 대상 이름을 누르면 상세 패널로 바로 이동합니다.</p>
-        </div>
-      </div>
-
-      <div class="panel">
-        <div class="gift-toolbar">
-          <div>
-            <h3 style="margin-bottom: 6px;">증정 추적 테이블</h3>
-            <small class="muted" id="giftCountLabel">-</small>
-          </div>
-          <div class="filter-grid" style="min-width: min(100%, 560px);">
-            <div class="field">
-              <label for="giftProjectFilter">프로젝트</label>
-              <select id="giftProjectFilter"></select>
+            <div class="gift-table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>대상자</th>
+                    <th>프로젝트</th>
+                    <th>상품</th>
+                    <th>발송 / 수령</th>
+                    <th>업로드</th>
+                    <th>사후 관리</th>
+                  </tr>
+                </thead>
+                <tbody id="giftTableBody"></tbody>
+              </table>
             </div>
-            <div class="field">
-              <label for="giftUploadFilter">업로드 상태</label>
-              <select id="giftUploadFilter">
-                <option value="전체">전체</option>
-                <option value="업로드 완료">업로드 완료</option>
-                <option value="업로드 예정">업로드 예정</option>
-                <option value="미업로드">미업로드</option>
-              </select>
+
+            <div class="footer-note">
+              이 HTML은 단일 파일 데모이므로 실제 저장 기능은 없습니다. 다만 메뉴 구조, 데이터 흐름, 추천 로직, 증정 추적까지 포함하고 있어 실제 개발 요구사항 정의의 출발점으로 사용할 수 있습니다.
             </div>
           </div>
-        </div>
-
-        <div class="gift-table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>대상자</th>
-                <th>프로젝트</th>
-                <th>상품</th>
-                <th>발송 / 수령</th>
-                <th>업로드</th>
-                <th>사후 관리</th>
-              </tr>
-            </thead>
-            <tbody id="giftTableBody"></tbody>
-          </table>
-        </div>
-
-        <div class="footer-note">
-          이 HTML은 단일 파일 데모이므로 실제 저장 기능은 없습니다. 다만 데이터 구조, 화면 구성, 추천 로직, 증정 추적 흐름을 모두 포함하고 있어
-          실제 관리자 개발 시 프론트/백엔드 요구사항 정의의 출발점으로 사용할 수 있습니다.
-        </div>
-      </div>
-    </section>
+        </section>
+      </main>
+    </div>
   </div>
 
   <script>
@@ -2423,6 +2658,7 @@
     ];
 
     const state = {
+      page: "overview",
       filters: {
         search: "",
         type: "전체",
@@ -2448,9 +2684,47 @@
     };
 
     const typeOrder = ["전체", "고객", "VIP", "셀럽", "인플루언서", "KOL"];
+    const pageMeta = {
+      overview: {
+        title: "운영 홈",
+        description: "샘플 기준일은 2026년 3월 15일입니다. 오늘 챙길 사람, 진행 프로젝트, 주요 운영 지표를 간단히 확인합니다."
+      },
+      directory: {
+        title: "인물 관리",
+        description: "조건으로 대상을 좁힌 뒤 리스트에서 선택하고, 상세에서 관계 상태와 최근 이력을 확인하는 화면입니다."
+      },
+      recommendation: {
+        title: "프로젝트 추천",
+        description: "프로젝트 목표에 맞는 후보를 설명 가능한 규칙으로 추천하고, 바로 인물 상세로 이어질 수 있게 구성했습니다."
+      },
+      giftTracker: {
+        title: "증정 추적",
+        description: "발송 이후 업로드 여부와 사후 관리 상태를 추적하고, 필요한 경우 인물 상세로 연결해 후속 액션을 잡습니다."
+      }
+    };
 
     function byId(id) {
       return document.getElementById(id);
+    }
+
+    function setActivePage(pageKey) {
+      state.page = pageKey;
+
+      document.querySelectorAll(".page-view").forEach((section) => {
+        section.classList.toggle("active", section.dataset.page === pageKey);
+      });
+
+      document.querySelectorAll("[data-page]").forEach((button) => {
+        if (button.classList.contains("menu-button")) {
+          button.classList.toggle("active", button.dataset.page === pageKey);
+        }
+      });
+
+      const meta = pageMeta[pageKey];
+      if (meta) {
+        byId("pageTitle").textContent = meta.title;
+        byId("pageDescription").textContent = meta.description;
+      }
     }
 
     function parseDate(dateString) {
@@ -2730,11 +3004,11 @@
       const urgentActions = people.filter((entry) => daysUntil(entry.nextAction) <= 7).length;
 
       const cards = [
-        { label: "전체 인물", value: number(totalPeople), note: "공통 인물 마스터 기준" },
-        { label: "VIP 세그먼트", value: number(vipCount), note: "구매 및 관계 가치 상위" },
-        { label: "인플루언서/KOL", value: number(influencerCount), note: "프로젝트 추천 주요 풀" },
-        { label: "3월 증정 건수", value: number(monthGiftCount), note: "사후 홍보 추적 대상" },
-        { label: "즉시 액션 필요", value: number(urgentActions), note: "다음 액션 7일 이내" }
+        { label: "전체 인물", value: number(totalPeople), note: "공통 마스터" },
+        { label: "VIP 세그먼트", value: number(vipCount), note: "핵심 케어 대상" },
+        { label: "인플루언서/KOL", value: number(influencerCount), note: "추천 주요 풀" },
+        { label: "즉시 액션 필요", value: number(urgentActions), note: "7일 이내 후속" },
+        { label: "3월 증정 건수", value: number(monthGiftCount), note: "사후 관리 추적" }
       ];
 
       byId("metricGrid").innerHTML = cards.map((card) => `
@@ -2749,26 +3023,18 @@
     function renderPriorities() {
       const needsAction = [...people]
         .sort((a, b) => parseDate(a.nextAction) - parseDate(b.nextAction))
-        .slice(0, 4);
+        .slice(0, 3);
 
       const birthdays = [...people]
         .map((entry) => ({ person: entry, days: daysUntilBirthday(entry.birthday) }))
         .filter((entry) => entry.days <= 45)
         .sort((a, b) => a.days - b.days)
-        .slice(0, 4);
-
-      const topAdvocates = [...people]
-        .sort((a, b) => {
-          const left = (a.loyalty ? a.loyalty.activityScore : 0) + compositeScore(a.scores);
-          const right = (b.loyalty ? b.loyalty.activityScore : 0) + compositeScore(b.scores);
-          return right - left;
-        })
-        .slice(0, 4);
+        .slice(0, 3);
 
       const riskWatch = people
         .filter((entry) => entry.scores.risk >= 4 || entry.status === "제한" || entry.status === "보류")
         .sort((a, b) => b.scores.risk - a.scores.risk)
-        .slice(0, 4);
+        .slice(0, 3);
 
       const groups = [
         {
@@ -2787,15 +3053,6 @@
             body: formatBirthday(entry.birthday) + " / " + entry.tags.slice(0, 2).join(" · "),
             personId: entry.id,
             badge: "Birthday"
-          }))
-        },
-        {
-          title: "활동성 높은 자산",
-          items: topAdvocates.map((entry) => ({
-            title: entry.name + " · " + compositeScore(entry.scores) + "점",
-            body: personTypeLabel(entry) + " / " + entry.tags.slice(0, 3).join(" · "),
-            personId: entry.id,
-            badge: "High Value"
           }))
         },
         {
@@ -2845,7 +3102,7 @@
             </div>
             <div class="project-footer">
               <span>${project.region} / 예산 ${project.budget}</span>
-              <span>후보 풀 ${number(candidateCount)}명</span>
+              <button type="button" class="ghost-button" data-project-link="${project.id}">후보 보기 (${number(candidateCount)}명)</button>
             </div>
           </article>
         `;
@@ -2955,30 +3212,6 @@
         ["리스크", entry.scores.risk, true]
       ];
 
-      const profileBlock = entry.loyalty ? `
-        <div class="info-card">
-          <h4>고객 로열티</h4>
-          <div class="kv-list">
-            <div class="kv-item"><span>가입일</span><span>${formatDate(entry.loyalty.joinDate)}</span></div>
-            <div class="kv-item"><span>등급</span><span>${entry.loyalty.tier}${entry.loyalty.vip ? " / VIP" : ""}</span></div>
-            <div class="kv-item"><span>누적 구매</span><span>${currency(entry.loyalty.purchaseTotal)}</span></div>
-            <div class="kv-item"><span>활동 점수</span><span>${entry.loyalty.activityScore}점 / 포인트 ${number(entry.loyalty.points)}점</span></div>
-            <div class="kv-item"><span>최근 구매</span><span>${formatDate(entry.loyalty.recentPurchase)}</span></div>
-          </div>
-        </div>
-      ` : `
-        <div class="info-card">
-          <h4>협업 프로필</h4>
-          <div class="kv-list">
-            <div class="kv-item"><span>소속/매니저</span><span>${entry.collaboration ? entry.collaboration.agency + " / " + entry.collaboration.manager : "-"}</span></div>
-            <div class="kv-item"><span>단가 감도</span><span>${entry.collaboration ? entry.collaboration.rateBand : "-"}</span></div>
-            <div class="kv-item"><span>선호 협업</span><span>${entry.collaboration ? entry.collaboration.preferred : "-"}</span></div>
-            <div class="kv-item"><span>비선호 조건</span><span>${entry.collaboration ? entry.collaboration.avoid : "-"}</span></div>
-            <div class="kv-item"><span>경쟁사 제한</span><span>${entry.collaboration ? entry.collaboration.competitorLimit : "-"}</span></div>
-          </div>
-        </div>
-      `;
-
       byId("personDetail").innerHTML = `
         <div class="detail-header">
           <div>
@@ -3004,38 +3237,113 @@
 
         <div class="detail-summary">${buildInsightSummary(entry)}</div>
 
-        <div class="detail-grid">
+        <div class="compact-grid">
           <div class="info-card">
-            <h4>기본 정보</h4>
+            <h4>핵심 정보</h4>
             <div class="kv-list">
               <div class="kv-item"><span>직업/분야</span><span>${entry.occupation}</span></div>
               <div class="kv-item"><span>생일</span><span>${formatBirthday(entry.birthday)}</span></div>
               <div class="kv-item"><span>마지막 접촉</span><span>${formatDate(entry.lastContact)}</span></div>
-              <div class="kv-item"><span>데이터 출처</span><span>${entry.source}</span></div>
-              <div class="kv-item"><span>신뢰도</span><span>${entry.confidence}</span></div>
+              <div class="kv-item"><span>다음 액션</span><span>${formatDate(entry.nextAction)} / ${nextActionLabel(entry)}</span></div>
+              <div class="kv-item"><span>내부 담당자</span><span>${entry.owner}</span></div>
               <div class="kv-item"><span>핵심 메모</span><span>${entry.summary}</span></div>
             </div>
           </div>
 
-          ${profileBlock}
-
           <div class="info-card">
-            <h4>SNS / 채널</h4>
-            <div class="channel-list">
-              ${entry.channels.map((channel) => `
-                <div class="channel-item">
-                  <strong>${channel.platform} ${channel.primary ? '<span class="badge type">대표</span>' : ""}</strong>
-                  <p>${channel.handle} / ${channel.category}</p>
-                  <p>영향력: ${channel.followers ? number(channel.followers) + "명" : channel.engagement}</p>
-                  <p>최근 게시: ${formatDate(channel.lastPost)} / ${channel.engagement}</p>
-                </div>
-              `).join("")}
+            <h4>운영 판단</h4>
+            <div class="kv-list">
+              <div class="kv-item"><span>유형</span><span>${personTypeLabel(entry)}</span></div>
+              <div class="kv-item"><span>상태</span><span>${entry.status}</span></div>
+              <div class="kv-item"><span>영향력</span><span>${number(totalFollowers(entry))}명</span></div>
+              <div class="kv-item"><span>신뢰도</span><span>${entry.confidence}</span></div>
+              <div class="kv-item"><span>출처</span><span>${entry.source}</span></div>
+              <div class="kv-item"><span>핵심 태그</span><span>${entry.tags.slice(0, 3).map((tag) => `#${tag}`).join(" ")}</span></div>
             </div>
           </div>
+        </div>
 
-          <div class="info-card">
-            <h4>사이즈 / 배송</h4>
+        <div class="info-card" style="margin-top: 12px;">
+          <h4>평가 요약</h4>
+          <div class="score-grid">
+            ${scoreRows.map(([label, score, risk]) => `
+              <div class="score-row">
+                <span>${label}</span>
+                <div class="bar-track">
+                  <div class="bar-fill ${risk ? "risk" : ""}" style="width: ${(score / 5) * 100}%"></div>
+                </div>
+                <strong>${score}/5</strong>
+              </div>
+            `).join("")}
+          </div>
+        </div>
+
+        <div class="info-card" style="margin-top: 12px;">
+          <h4>최근 활동</h4>
+          <div class="timeline">
+            ${[...entry.activities]
+              .sort((a, b) => parseDate(b.date) - parseDate(a.date))
+              .slice(0, 3)
+              .map((activity) => `
+                <div class="timeline-item">
+                  <strong>${activity.title}<span class="badge ${activity.type === "행사" ? "gold" : activity.type === "증정" || activity.type === "협찬" ? "accent" : "type"}">${activity.type}</span></strong>
+                  <p>${formatDate(activity.date)} / ${activity.note}</p>
+                </div>
+              `).join("")}
+          </div>
+        </div>
+
+        <div class="info-card" style="margin-top: 12px;">
+          <h4>최근 증정 이력</h4>
+          <div class="gift-list">
+            ${personGifts.length ? personGifts.slice(0, 3).map((gift) => `
+              <div class="gift-item">
+                <strong>${gift.item}<span class="badge ${gift.uploadStatus === "업로드 완료" ? "type" : gift.uploadStatus === "업로드 예정" ? "accent" : "danger"}">${gift.uploadStatus}</span></strong>
+                <p>${getProject(gift.projectId).name} / ${formatDate(gift.shippedAt)} / ${gift.performance}</p>
+              </div>
+            `).join("") : `<div class="empty-state">등록된 증정 이력이 없습니다.</div>`}
+          </div>
+        </div>
+
+        <details class="detail-disclosure">
+          <summary>채널 / 영향력 더 보기</summary>
+          <div class="disclosure-body channel-list">
+            ${entry.channels.map((channel) => `
+              <div class="channel-item">
+                <strong>${channel.platform} ${channel.primary ? '<span class="badge type">대표</span>' : ""}</strong>
+                <p>${channel.handle} / ${channel.category}</p>
+                <p>영향력: ${channel.followers ? number(channel.followers) + "명" : channel.engagement}</p>
+                <p>최근 게시: ${formatDate(channel.lastPost)} / ${channel.engagement}</p>
+              </div>
+            `).join("")}
+          </div>
+        </details>
+
+        <details class="detail-disclosure">
+          <summary>${entry.loyalty ? "고객 로열티 정보" : "협업 프로필 더 보기"}</summary>
+          <div class="disclosure-body">
             <div class="kv-list">
+              ${entry.loyalty ? `
+                <div class="kv-item"><span>가입일</span><span>${formatDate(entry.loyalty.joinDate)}</span></div>
+                <div class="kv-item"><span>등급</span><span>${entry.loyalty.tier}${entry.loyalty.vip ? " / VIP" : ""}</span></div>
+                <div class="kv-item"><span>누적 구매</span><span>${currency(entry.loyalty.purchaseTotal)}</span></div>
+                <div class="kv-item"><span>활동 점수</span><span>${entry.loyalty.activityScore}점 / 포인트 ${number(entry.loyalty.points)}점</span></div>
+                <div class="kv-item"><span>최근 구매</span><span>${formatDate(entry.loyalty.recentPurchase)}</span></div>
+              ` : `
+                <div class="kv-item"><span>소속/매니저</span><span>${entry.collaboration ? entry.collaboration.agency + " / " + entry.collaboration.manager : "-"}</span></div>
+                <div class="kv-item"><span>단가 감도</span><span>${entry.collaboration ? entry.collaboration.rateBand : "-"}</span></div>
+                <div class="kv-item"><span>선호 협업</span><span>${entry.collaboration ? entry.collaboration.preferred : "-"}</span></div>
+                <div class="kv-item"><span>비선호 조건</span><span>${entry.collaboration ? entry.collaboration.avoid : "-"}</span></div>
+                <div class="kv-item"><span>경쟁사 제한</span><span>${entry.collaboration ? entry.collaboration.competitorLimit : "-"}</span></div>
+              `}
+            </div>
+          </div>
+        </details>
+
+        <details class="detail-disclosure">
+          <summary>사이즈 / 배송 / 메모 더 보기</summary>
+          <div class="disclosure-body">
+            <div class="kv-list" style="margin-bottom: 14px;">
               <div class="kv-item"><span>상의 / 하의</span><span>${entry.size ? entry.size.top + " / " + entry.size.bottom : "-"}</span></div>
               <div class="kv-item"><span>신발</span><span>${entry.size ? entry.size.shoes : "-"}</span></div>
               <div class="kv-item"><span>핏 선호</span><span>${entry.size ? entry.size.fit : "-"}</span></div>
@@ -3043,53 +3351,6 @@
               <div class="kv-item"><span>수령인</span><span>${entry.size ? entry.size.receiver + " / " + entry.size.phone : "-"}</span></div>
               <div class="kv-item"><span>사이즈 신뢰도</span><span>${entry.size ? entry.size.trust : "-"}</span></div>
             </div>
-          </div>
-        </div>
-
-        <div class="detail-grid">
-          <div class="info-card">
-            <h4>평가 요약</h4>
-            <div class="score-grid">
-              ${scoreRows.map(([label, score, risk]) => `
-                <div class="score-row">
-                  <span>${label}</span>
-                  <div class="bar-track">
-                    <div class="bar-fill ${risk ? "risk" : ""}" style="width: ${(score / 5) * 100}%"></div>
-                  </div>
-                  <strong>${score}/5</strong>
-                </div>
-              `).join("")}
-            </div>
-          </div>
-
-          <div class="info-card">
-            <h4>최근 활동 타임라인</h4>
-            <div class="timeline">
-              ${[...entry.activities]
-                .sort((a, b) => parseDate(b.date) - parseDate(a.date))
-                .map((activity) => `
-                  <div class="timeline-item">
-                    <strong>${activity.title}<span class="badge ${activity.type === "행사" ? "gold" : activity.type === "증정" || activity.type === "협찬" ? "accent" : "type"}">${activity.type}</span></strong>
-                    <p>${formatDate(activity.date)} / ${activity.note}</p>
-                  </div>
-                `).join("")}
-            </div>
-          </div>
-
-          <div class="info-card">
-            <h4>증정 이력</h4>
-            <div class="gift-list">
-              ${personGifts.length ? personGifts.slice(0, 4).map((gift) => `
-                <div class="gift-item">
-                  <strong>${gift.item}<span class="badge ${gift.uploadStatus === "업로드 완료" ? "type" : gift.uploadStatus === "업로드 예정" ? "accent" : "danger"}">${gift.uploadStatus}</span></strong>
-                  <p>${getProject(gift.projectId).name} / ${formatDate(gift.shippedAt)} / ${gift.performance}</p>
-                </div>
-              `).join("") : `<div class="empty-state">등록된 증정 이력이 없습니다.</div>`}
-            </div>
-          </div>
-
-          <div class="info-card">
-            <h4>운영 메모 / 태그</h4>
             <div class="note-list">
               <div class="note-item">
                 <strong>운영 태그</strong>
@@ -3103,7 +3364,7 @@
               `).join("")}
             </div>
           </div>
-        </div>
+        </details>
       `;
     }
 
@@ -3159,7 +3420,7 @@
         .map((entry) => recommendationScore(entry, criteria))
         .filter(Boolean)
         .sort((a, b) => b.score - a.score)
-        .slice(0, 8);
+        .slice(0, 5);
 
       byId("recommendationSummary").innerHTML = ranked.length ? `
         <strong>${project.name}</strong>
@@ -3248,12 +3509,28 @@
     }
 
     function focusPerson(personId) {
+      state.filters = {
+        search: "",
+        type: "전체",
+        status: "전체",
+        tag: "전체",
+        owner: "전체",
+        sort: "score"
+      };
       state.selectedPersonId = personId;
+      renderTypeChips();
+      renderSelectOptions();
+      setActivePage("directory");
       renderPersonList();
-      byId("directory").scrollIntoView({ behavior: "smooth", block: "start" });
     }
 
     function bindEvents() {
+      byId("pageMenu").addEventListener("click", (event) => {
+        const button = event.target.closest(".menu-button");
+        if (!button) return;
+        setActivePage(button.dataset.page);
+      });
+
       byId("searchInput").addEventListener("input", (event) => {
         state.filters.search = event.target.value.trim();
         renderPersonList();
@@ -3321,6 +3598,16 @@
         renderRecommendations();
       });
 
+      byId("projectGrid").addEventListener("click", (event) => {
+        const button = event.target.closest("[data-project-link]");
+        if (!button) return;
+        syncProjectToRecommendation(button.dataset.projectLink);
+        renderRecommendationControls();
+        renderProjectBrief();
+        renderRecommendations();
+        setActivePage("recommendation");
+      });
+
       byId("recommendProjectType").addEventListener("change", (event) => {
         state.recommendation.projectType = event.target.value;
       });
@@ -3369,6 +3656,7 @@
       renderGiftFilters();
       renderGiftTable();
       bindEvents();
+      setActivePage(state.page);
     }
 
     init();
